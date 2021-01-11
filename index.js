@@ -26,6 +26,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res, next) => {
+  res.status(200).json({
+    message: "All Ok",
+  });
+});
+
 app.post("/payment", (req, res) => {
   let paymentData = req.body;
   var params = {};
