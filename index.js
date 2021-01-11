@@ -4,7 +4,7 @@ var app = express();
 app.use(bodyParser.json());
 
 const checksum_lib = require("./checksum.js");
-
+const PORT = process.env.PORT || 3000;
 //PAYTM CONFIGURATION
 var PaytmConfig = {
   mid: "iPMoji73382098817294",
@@ -91,5 +91,6 @@ app.post("/paymentReceipt", (req, res) => {
     });
   }
 });
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`App is listening on Port ${PORT}`);
+});
